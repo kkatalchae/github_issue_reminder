@@ -1,0 +1,19 @@
+name: issue_reminder
+
+on:
+  schedule:
+    - cron: "30 10 * * 1,2,3,4,5" # 주중 10시 반에 실행
+
+jobs:
+  issue-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: "issue-reminder"
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "18.x"
+      - run: npm install
+      - run: npm run issue-reminder
+
