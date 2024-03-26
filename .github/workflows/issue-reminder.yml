@@ -8,12 +8,10 @@ jobs:
   issue-reminder:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          ref: "issue-reminder"
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "18.x"
+          node-version: "18"
       - run: npm install
-      - run: npm run issue-reminder
+      - run: npm start
 
