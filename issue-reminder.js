@@ -2,11 +2,12 @@ import {Octokit} from "octokit";
 import {WebClient} from "@slack/web-api";
 
 // api 사용을 위한 초기화 작
-const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN
-});
+const github_token = process.env.GIT_AUTH_TOKEN
 const slack_api_token = process.env.SLACK_API_TOKEN;
 const slack_web_client = new WebClient(slack_api_token);
+const octokit = new Octokit({
+    auth: process.env.GIT_AUTH_TOKEN
+});
 
 // TODO 외부에서 설정할 수 있도록 수정
 // 설정값
@@ -27,7 +28,7 @@ let reminder_text = '';
  * @param repo_name 저장소 이름
  */
 async function get_github_issue_list(owner, repo_name) {
-//     console.log("get_github_issue_list");
+    console.log("get_github_issue_list", );
     try {
         const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
             owner: owner,
