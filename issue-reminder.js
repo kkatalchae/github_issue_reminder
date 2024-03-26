@@ -28,7 +28,7 @@ let reminder_text = '';
  * @param repo_name 저장소 이름
  */
 async function get_github_issue_list(owner, repo_name) {
-    console.log("get_github_issue_list", github_token, slack_api_token);
+    console.log("github token", github_token, "slack_api_token", slack_api_token);
     try {
         const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
             owner: owner,
