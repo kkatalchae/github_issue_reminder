@@ -1,8 +1,8 @@
 import {Octokit} from "octokit";
 import {WebClient} from "@slack/web-api";
+import { configDotenv } from "dotenv";
 
-const dotenv = require('dotenv');
-dotenv.config();
+configDotenv();
 
 // api 사용을 위한 초기화 작업
 const github_token = process.env.GIT_AUTH_TOKEN
